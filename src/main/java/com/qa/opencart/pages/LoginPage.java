@@ -9,6 +9,8 @@ import com.qa.opencart.utils.ElementUtil;
 public class LoginPage {
 	private WebDriver driver;
 	private ElementUtil ele;
+	
+	int i = 10;
 
 	private By userName = By.id("input-email");
 	private By password = By.id("input-password");
