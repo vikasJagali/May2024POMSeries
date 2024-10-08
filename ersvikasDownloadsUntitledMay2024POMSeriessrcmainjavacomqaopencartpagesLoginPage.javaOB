@@ -1,0 +1,75 @@
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  1) package com.qa.opencart.pages;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  2) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  3) import org.openqa.selenium.By;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  4) import org.openqa.selenium.WebDriver;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  5) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  6) import com.qa.opencart.constants.AppConstants;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  7) import com.qa.opencart.utils.ElementUtil;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  8) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530  9) public class LoginPage {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 10) 	private WebDriver driver;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 11) 	private ElementUtil ele;
+fee14b47 (Vikas 2024-09-30 18:26:33 +0530 12) 	
+fee14b47 (Vikas 2024-09-30 18:26:33 +0530 13) 	int i = 10;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 14) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 15) 	private By userName = By.id("input-email");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 16) 	private By password = By.id("input-password");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 17) 	private By loginBtn = By.xpath("//input[@value='Login']");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 18) 	private By forgottenPaswordlink = By.linkText("Forgotten Password");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 19) 	private By logo = By.xpath("//img[@title='naveenopencart']");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 20) 	private By myAccount = By.xpath("//h2[normalize-space()='My Account']");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 21) 	
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 22) 	private By registerBtn = By.xpath("//a[@class='list-group-item'][normalize-space()='Register']");
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 23) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 24) 	public LoginPage(WebDriver driver) {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 25) 		this.driver = driver;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 26) 		ele = new ElementUtil(driver);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 27) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 28) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 29) 	public String getLoginPageTitle() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 30) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 31) 		String title = ele.waitForTitleContainsAndReturn(AppConstants.LOGIN_PAGE_TITLE,
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 32) 				AppConstants.DEFAULT_SHORT_TIMEOUT);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 33) 		System.out.println("Page title : " + title);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 34) 		return title;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 35) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 36) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 37) 	public String getLoginPageUrl() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 38) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 39) 		String url = ele.waitForURLContainsAndReturn(AppConstants.LOGIN_PAGE_FRACTION_URL,
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 40) 				AppConstants.DEFAULT_SHORT_TIMEOUT);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 41) 		System.out.println("Url of current page: " + url);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 42) 		return url;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 43) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 44) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 45) 	public boolean isForgotPasswordLinkExist() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 46) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 47) 		return ele.isElementDisplayed(forgottenPaswordlink);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 48) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 49) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 50) 	public boolean isLogoExist() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 51) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 52) 		return ele.isElementDisplayed(logo);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 53) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 54) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 55) 	public AccountsPage doLogin(String username, String password) {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 56) 		
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 57) 		ele.waitForElementVisible(userName, AppConstants.DEFAULT_SHORT_TIMEOUT).sendKeys(username);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 58) 		ele.doSendKeys(this.password, password);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 59) 		ele.doClick(loginBtn);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 60) 		return new AccountsPage(driver);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 61) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 62) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 63) 	
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 64) 	public RegisterPage doRegistration() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 65) 		ele.waitForElementVisible(registerBtn, AppConstants.DEFAULT_SHORT_TIMEOUT).click();
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 66) 		return new RegisterPage(driver);
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 67) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 68) 	
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 69) 	public WebDriver getDriverFromLoginPage() {
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 70) 		return driver;
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 71) 	}
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 72) 	
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 73) 	
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 74) 
+^d369e33 (Vikas 2024-09-30 17:56:42 +0530 75) }
