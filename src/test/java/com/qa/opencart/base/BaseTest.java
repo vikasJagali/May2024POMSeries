@@ -33,7 +33,7 @@ public class BaseTest {
 	@Parameters({"browser"})
 	@BeforeTest
 	public void setup(@Optional("chrome") String browserName) {
-		System.out.println("setup called");
+		System.out.println("setup called successfully");
 		df = new DriverFactory();
 		
 		prop = df.initProperties();
