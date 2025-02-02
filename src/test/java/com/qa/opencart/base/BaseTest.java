@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
@@ -29,13 +30,17 @@ public class BaseTest {
 	protected SoftAssert softAssert;
 	
 	
-	
+	@Parameters({"browser"})
 	@BeforeTest
-	public void setup() {
+	public void setup(@Optional("chrome") String browserName) {
 		System.out.println("setup called");
 		df = new DriverFactory();
 		
 		prop = df.initProperties();
+		
+		if(browserName!=null) {
+			prop.setProperty("browser", browserName);
+		}
 		
 		System.out.println("browser from properties file: " + prop.getProperty("browser"));
 		
@@ -44,7 +49,6 @@ public class BaseTest {
 		System.out.println("diver in base test: " +driver);
 		
 		loginPage = new LoginPage(driver);
-		
 		softAssert = new SoftAssert();
 	}
 	

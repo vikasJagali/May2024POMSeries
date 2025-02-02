@@ -10,6 +10,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -43,6 +44,9 @@ public class DriverFactory {
 			driver = new SafariDriver();
 			break;
 		case "firefox":
+			System.out.println("inside firefox switch case");
+			//driver = new FirefoxDriver();
+			tlDriver.set(new FirefoxDriver());
 			break;
 		default:
 			System.out.println(AppError.INVALID_BROWSER_MESSAGE + browserName);

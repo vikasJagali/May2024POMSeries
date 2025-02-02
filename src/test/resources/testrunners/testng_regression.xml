@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 
-<suite name="loan_department" thread-count = "4" parallel = "tests">  
+<suite name="loan_department" parallel = "tests" thread-count = "4">  
 
 
 
@@ -10,27 +10,31 @@
 
 
   <test name="Login Page Test">  
+  <paramater name="browser" value="chrome" />
     <classes>  
       <class name="com.qa.opencart.tests.LoginPageTest"/>   
     </classes>  
   </test>     
   
-   <test name="Accounts Page Test">  
+   <test name="Accounts Page Test">    
+   <parameter name = "browser" value = "firefox" />
     <classes>  
       <class name="com.qa.opencart.tests.AccountsPageTest"/>   
     </classes>  
   </test>     
   
   <test name="Product Info Page Page Test">  
+  <parameter name="browser" value="chrome" />
     <classes>  
       <class name="com.qa.opencart.tests.ProductInfoPageTest"/>   
     </classes>  
   </test>     
   
-  <test name="Registration Page Test">  
+  <test name="Registration Page Test"> 
+  <parameter name="browser" value ="firefox"/> 
     <classes>  
       <class name="com.qa.opencart.tests.RegisterPageTest"/>   
-    </classes>  
+    </classes>   
   </test>     
   
   
